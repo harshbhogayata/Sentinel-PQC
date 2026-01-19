@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+/* Custom theme for Sentinel-PQC Dashboard */
+:root {
+  --color-critical: #ef4444;
+  --color-high: #f59e0b;
+  --color-medium: #3b82f6;
+  --color-low: #10b981;
+  --color-unknown: #6b7280;
+}
+
+body {
+  @apply bg-slate-950 text-white antialiased;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* Pulsing animation for critical alerts */
+@keyframes pulse-critical {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+  }
+  50% {
+    opacity: 0.9;
+    box-shadow: 0 0 0 10px rgba(239, 68, 68, 0);
+  }
+}
+
+.pulse-critical {
+  animation: pulse-critical 2s infinite;
+}
+
+/* Gradient text */
+.gradient-text {
+  @apply bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent;
+}
+
+/* Glass card effect */
+.glass-card {
+  @apply bg-slate-900/50 backdrop-blur-xl border border-slate-800 rounded-2xl;
+}
+
+/* Status colors */
+.status-critical { @apply bg-red-500/20 text-red-400 border-red-500/30; }
+.status-high { @apply bg-amber-500/20 text-amber-400 border-amber-500/30; }
+.status-medium { @apply bg-blue-500/20 text-blue-400 border-blue-500/30; }
+.status-low { @apply bg-emerald-500/20 text-emerald-400 border-emerald-500/30; }
+.status-unknown { @apply bg-gray-500/20 text-gray-400 border-gray-500/30; }

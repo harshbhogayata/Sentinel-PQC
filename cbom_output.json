@@ -1,0 +1,83 @@
+[
+  {
+    "file": "test_samples\\vulnerable.py",
+    "line": 25,
+    "algo": "RSA",
+    "method": "generate",
+    "bits": 1024,
+    "risk": "CRITICAL",
+    "context": "RSA.generate(1024)"
+  },
+  {
+    "file": "test_samples\\vulnerable.py",
+    "line": 28,
+    "algo": "RSA",
+    "method": "generate",
+    "bits": 2048,
+    "risk": "HIGH",
+    "context": "RSA.generate(2048)"
+  },
+  {
+    "file": "test_samples\\vulnerable.py",
+    "line": 31,
+    "algo": "RSA",
+    "method": "generate",
+    "bits": 2048,
+    "risk": "HIGH",
+    "context": "RSA.generate(bits=2048, e=65537)"
+  },
+  {
+    "file": "test_samples\\vulnerable.py",
+    "line": 34,
+    "algo": "RSA",
+    "method": "generate",
+    "bits": 4096,
+    "risk": "MEDIUM",
+    "context": "RSA.generate(4096)"
+  },
+  {
+    "file": "test_samples\\vulnerable.py",
+    "line": 37,
+    "algo": "RSA",
+    "method": "generate",
+    "bits": 1024,
+    "risk": "CRITICAL",
+    "context": "PyRSA.generate(1024)"
+  },
+  {
+    "file": "test_samples\\vulnerable.py",
+    "line": 50,
+    "algo": "AES",
+    "method": "new",
+    "bits": "Unknown",
+    "risk": "UNKNOWN",
+    "context": "AES.new(key_128, AES.MODE_GCM)"
+  },
+  {
+    "file": "test_samples\\vulnerable.py",
+    "line": 54,
+    "algo": "AES",
+    "method": "new",
+    "bits": "Unknown",
+    "risk": "UNKNOWN",
+    "context": "AES.new(key_256, AES.MODE_GCM)"
+  },
+  {
+    "file": "test_samples\\vulnerable.py",
+    "line": 62,
+    "algo": "DSA",
+    "method": "generate",
+    "bits": 1024,
+    "risk": "CRITICAL",
+    "context": "DSA.generate(1024)"
+  },
+  {
+    "file": "test_samples\\vulnerable.py",
+    "line": 65,
+    "algo": "DSA",
+    "method": "generate",
+    "bits": 2048,
+    "risk": "HIGH",
+    "context": "DSA.generate(bits=2048)"
+  }
+]

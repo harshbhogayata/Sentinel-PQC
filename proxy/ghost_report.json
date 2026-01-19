@@ -1,0 +1,10 @@
+{
+  "timestamp": "2026-01-19T23:48:13+05:30",
+  "client_ip": "127.0.0.1:52393",
+  "algorithm": "Kyber768",
+  "public_key_size": 1184,
+  "handshake_size_bytes": 1484,
+  "fragmentation_risk": true,
+  "status": "CRITICAL_RISK",
+  "message": "Packet size 1484 \u003e MTU 1400. WILL FRAGMENT on legacy networks!"
+}
