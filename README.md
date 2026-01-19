@@ -8,6 +8,8 @@ A comprehensive toolkit for detecting, simulating, and remediating cryptographic
 
 ---
 
+![Sentinel PQC Dashboard](assets/dashboard_preview.png)
+
 ## 📋 Overview
 
 Sentinel-PQC addresses the "Ghost Incompatibility" problem where large Post-Quantum Cryptography (PQC) keys cause network fragmentation. It provides:

@@ -1,48 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
 @import "tailwindcss";
 
-/* Custom theme for Sentinel-PQC Dashboard */
 :root {
-  --color-critical: #ef4444;
-  --color-high: #f59e0b;
-  --color-medium: #3b82f6;
-  --color-low: #10b981;
-  --color-unknown: #6b7280;
+  --bg-depth: #050505;
+  --bg-surface: #0a0a0a;
+  --border-subtle: #27272a;
+  /* Zinc 800 */
+  --border-highlight: #3f3f46;
+  /* Zinc 700 */
+  --accent-primary: #3b82f6;
+  /* Blue 500 */
+  --accent-glow: rgba(59, 130, 246, 0.15);
 }
 
 body {
-  @apply bg-slate-950 text-white antialiased;
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-depth);
+  color: #e4e4e7;
+  /* Zinc 200 */
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  background-image:
+    linear-gradient(to right, #1a1a1a 1px, transparent 1px),
+    linear-gradient(to bottom, #1a1a1a 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: center top;
 }
 
-/* Pulsing animation for critical alerts */
-@keyframes pulse-critical {
-  0%, 100% {
-    opacity: 1;
-    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
-  }
-  50% {
-    opacity: 0.9;
-    box-shadow: 0 0 0 10px rgba(239, 68, 68, 0);
-  }
+/* Vignette to fade grid at edges */
+body::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, transparent 0%, var(--bg-depth) 100%);
+  pointer-events: none;
+  z-index: -1;
 }
 
-.pulse-critical {
-  animation: pulse-critical 2s infinite;
+/* Typography */
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
 }
 
-/* Gradient text */
-.gradient-text {
-  @apply bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent;
+h1,
+h2,
+h3 {
+  letter-spacing: -0.025em;
 }
 
-/* Glass card effect */
+/* Glass/Surface Card */
 .glass-card {
-  @apply bg-slate-900/50 backdrop-blur-xl border border-slate-800 rounded-2xl;
+  background: rgba(10, 10, 10, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: all 0.2s ease-in-out;
 }
 
-/* Status colors */
-.status-critical { @apply bg-red-500/20 text-red-400 border-red-500/30; }
-.status-high { @apply bg-amber-500/20 text-amber-400 border-amber-500/30; }
-.status-medium { @apply bg-blue-500/20 text-blue-400 border-blue-500/30; }
-.status-low { @apply bg-emerald-500/20 text-emerald-400 border-emerald-500/30; }
-.status-unknown { @apply bg-gray-500/20 text-gray-400 border-gray-500/30; }
+.glass-card:hover {
+  border-color: var(--border-highlight);
+  box-shadow: 0 0 0 1px var(--border-highlight), 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+  transform: translateY(-1px);
+}
+
+/* Status Indicators */
+.status-pill {
+  @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium border;
+}
+
+.status-critical {
+  @apply bg-red-500/10 text-red-400 border-red-500/20;
+  box-shadow: 0 0 8px rgba(239, 68, 68, 0.1);
+}
+
+.status-high {
+  @apply bg-orange-500/10 text-orange-400 border-orange-500/20;
+}
+
+.status-medium {
+  @apply bg-blue-500/10 text-blue-400 border-blue-500/20;
+}
+
+.status-low {
+  @apply bg-emerald-500/10 text-emerald-400 border-emerald-500/20;
+}
+
+/* Buttons */
+.btn-primary {
+  background: linear-gradient(180deg, #27272a 0%, #18181b 100%);
+  border: 1px solid #3f3f46;
+  color: white;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  transition: all 0.2s;
+}
+
+.btn-primary:hover {
+  border-color: #52525b;
+  transform: translateY(-1px);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+  background: #18181b;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3f3f46;
+  border-radius: 99px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #52525b;
+}
